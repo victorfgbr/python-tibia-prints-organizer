@@ -12,8 +12,17 @@ if (len(sys.argv) < 2):
 printsFolderPath = str(sys.argv[1])
 print(f'>>> printsFolderPath: {printsFolderPath}')
 
+def isValidScreenshot(printsFolderPath, f):
+    # skip folders
+    if not isfile(join(printsFolderPath, f)):
+        return False;
+
+    # validate if file is a printscreen
+    return PrintDto(f).isValid()
+
+
 # Get list of prints
-listPrintDto = [PrintDto(f) for f in listdir(printsFolderPath) if isfile(join(printsFolderPath, f))]
+listPrintDto = [PrintDto(f) for f in listdir(printsFolderPath) if isValidScreenshot(printsFolderPath, f)]
 
 for printDto in listPrintDto:
     # Create new directory folder
