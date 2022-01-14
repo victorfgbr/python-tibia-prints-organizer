@@ -5,3 +5,5 @@ Python3 script responsible by organize the Tibia prints folder, separating print
 To run this script, you just need to pass the screenshot folder path as argument
 
 <code>py app.py <path_to_screenshots_folder> </code>
+
+You may execute the batch file <b>run.bat</b> to run this script.
